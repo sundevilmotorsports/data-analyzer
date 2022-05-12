@@ -7,13 +7,19 @@ from PyQt5.QtGui import *
 
 app = QApplication(sys.argv)
 
+# sidebar where we can select columns
+import selector
+
+# tool bar where we can add plugins, import and save data
+import toolbar
+
 window = QMainWindow()
 window.resize(1600, 900)
 window.setWindowTitle("Sun Devil Motorsports Plotter")
 
 graphs = pg.GraphicsLayoutWidget(show=True, title="Basic plotting examples")
 
-p1 = graphs.addPlot(title="Basic array plotting", y=np.random.normal(size=100))
+p1 = graphs.addPlot(title="uwu", y=np.random.normal(size=100))
 p1.showGrid(x=True,y=True)
 
 graphs.nextRow()
@@ -52,20 +58,11 @@ window.setCentralWidget(graphs)
 
 # data selector
 dock = QDockWidget("Select Data", window)
-widget = QWidget()
-dock.setWidget(widget)
 dock.setFeatures(QDockWidget.NoDockWidgetFeatures)
-vbox = QVBoxLayout()
-widget.setLayout(vbox)
+dock.setWidget(selector.widget)
 
-ctop = QComboBox()
-cmid = QComboBox()
-cbot = QComboBox() 
-vbox.addWidget(ctop)
-vbox.addWidget(cmid)
-vbox.addWidget(cbot)
 window.addDockWidget(Qt.LeftDockWidgetArea, dock)
-
+window.addToolBar(toolbar.bar)
 
 
 window.show()
