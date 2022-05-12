@@ -4,11 +4,15 @@ bar = QToolBar()
 
 def onPress(a):
     print(a.text())
+    if a.text() == "Import\nFile":
+        print("owowowowowowo")
 
 actionImport = QAction("Import\nFile")
 actionSave = QAction("Save\nFile")
+actionDetails = QAction("Show\nDetails")
 bar.addAction(actionImport)
 bar.addAction(actionSave)
+bar.addAction(actionDetails)
 bar.addSeparator()
 
 actionMovement = QAction("Movement\nData")

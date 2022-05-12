@@ -12,7 +12,7 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 
 # Run the Plotter Utility
-$ python3 plotter.py
+$ python3 main.py
 
 # Leave the virtual environment
 $ deactivate
