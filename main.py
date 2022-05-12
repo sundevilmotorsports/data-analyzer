@@ -4,7 +4,6 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDockWidget
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from plot import SDMPlot
 
 app = QApplication(sys.argv)
 
