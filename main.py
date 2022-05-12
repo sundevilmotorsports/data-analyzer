@@ -16,7 +16,7 @@ import toolbar
 
 window = QMainWindow()
 window.resize(1600, 900)
-window.setWindowTitle("Sun Devil Motorsports Plotter")
+window.setWindowTitle("Sun Devil Motorsports Plotter Utility")
 
 graphs = pg.GraphicsLayoutWidget()
 graphs.ci.layout.setContentsMargins(1,1,1,1)
