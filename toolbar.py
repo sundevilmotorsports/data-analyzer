@@ -27,9 +27,11 @@ bar.addSeparator()
 actionMovement = QAction("Movement\nData")
 actionTrack = QAction("Track\nMap")
 actionLapComparison = QAction("Lap\nComparison")
+customChannel = QAction("Custom\nChannel")
 bar.addAction(actionMovement)
 bar.addAction(actionTrack)
 bar.addAction(actionLapComparison)
+bar.addAction(customChannel)
 
 bar.actionTriggered[QAction].connect(onPress)
 
