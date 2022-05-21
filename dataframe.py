@@ -25,6 +25,8 @@ class DataFrame():
             colData = []
             for r in range(1, len(raw)):
                 row = raw[r].split(",")
+                if row[0] == '':
+                    continue
                 colData.append(float(row[val]))
             self.data.append(colData)
         self.data = np.array(self.data)
