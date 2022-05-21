@@ -1,6 +1,7 @@
 import pyqtgraph as pg
 import numpy as np
 from dataframe import DataFrame
+import observer as obs
 
 graphs = pg.GraphicsLayoutWidget()
 graphs.ci.layout.setContentsMargins(1,1,1,1)
@@ -46,7 +47,31 @@ def mouseMoved(evt):
         
 proxy = pg.SignalProxy(topPlot.scene().sigMouseMoved, rateLimit=60, slot=mouseMoved)
 
-def initializeGraphs(df: DataFrame):
-    topPlot.plot(df.data[df.colGuide["Time (ms)"]], df.data[1])
-    midPlot.plot(df.data[df.colGuide["Time (ms)"]], df.data[1])
-    botPlot.plot(df.data[df.colGuide["Time (ms)"]], df.data[1])
+def initializePlots(df: DataFrame):
+    # clear and re-add vertical lines
+    topPlot.clear()
+    midPlot.clear()
+    botPlot.clear()
+    topPlot.addItem(vLine, ignoreBounds=False)
+    midPlot.addItem(vLine2, ignoreBounds=False)
+    botPlot.addItem(vLine3, ignoreBounds=False)
+
+    # initialize plots
+    topPlot.plot(df.data[0], df.data[1])
+    midPlot.plot(df.data[0], df.data[1])
+    botPlot.plot(df.data[0], df.data[1])
+
+def updateGraph(graph: str, header: str):
+    headerIndex: int = obs.currentFrame.colGuide[header]
+    if graph == "top":
+        topPlot.clear()
+        topPlot.addItem(vLine, ignoreBounds=False)
+        topPlot.plot(obs.currentFrame.data[0], obs.currentFrame.data[headerIndex])
+    elif graph == "mid":
+        midPlot.clear()
+        midPlot.addItem(vLine2, ignoreBounds=False)
+        midPlot.plot(obs.currentFrame.data[0], obs.currentFrame.data[headerIndex])
+    elif graph == "bot":
+        botPlot.clear()
+        botPlot.addItem(vLine3, ignoreBounds=False)
+        botPlot.plot(obs.currentFrame.data[0], obs.currentFrame.data[headerIndex])

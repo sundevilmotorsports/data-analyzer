@@ -16,13 +16,13 @@ vbox.addWidget(cmid)
 vbox.addWidget(cbot)
 
 def on_selection_change_top(i):
-    print(ctop.currentText())
+    pm.updateGraph("top", str(ctop.currentText()))
 
 def on_selection_change_mid(i):
-    print(cmid.currentText())
+    pm.updateGraph("mid", str(cmid.currentText()))
 
 def on_selection_change_bot(i):
-    print(cbot.currentText())
+    pm.updateGraph("bot", str(cbot.currentText()))
 
 ctop.activated.connect(on_selection_change_top)
 cmid.activated.connect(on_selection_change_mid)
@@ -36,5 +36,5 @@ def update_options(df: DataFrame):
     ctop.setCurrentIndex(1)
     cmid.setCurrentIndex(1)
     cbot.setCurrentIndex(1)
-    pm.initializeGraphs(df)
+    pm.initializePlots(df)
 

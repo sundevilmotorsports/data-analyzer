@@ -22,7 +22,7 @@ import plotmanager
 window.setCentralWidget(plotmanager.graphs)
 
 # data selector
-dock = QDockWidget("Select Data", window)
+dock = QDockWidget("Data Selector", window)
 dock.setFeatures(QDockWidget.NoDockWidgetFeatures)
 dock.setWidget(selector.widget)
 

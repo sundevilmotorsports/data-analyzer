@@ -24,7 +24,7 @@ class DataFrame():
         for key, val in self.colGuide.items():
             colData = []
             for r in range(1, len(raw)):
-                row = raw[r].split(", ") # TODO: update this to just ","
+                row = raw[r].split(",")
                 colData.append(float(row[val]))
             self.data.append(colData)
         self.data = np.array(self.data)
