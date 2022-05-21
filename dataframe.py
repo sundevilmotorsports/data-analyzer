@@ -1,5 +1,5 @@
 # intermediate representation of a data file
-
+import numpy as np
 
 class DataFrame():
     def __init__(self, path) -> None:
@@ -24,10 +24,10 @@ class DataFrame():
         for key, val in self.colGuide.items():
             colData = []
             for r in range(1, len(raw)):
-                row = raw[r].split(", ") # TODO update this to just ","
+                row = raw[r].split(", ") # TODO: update this to just ","
                 colData.append(float(row[val]))
             self.data.append(colData)
+        self.data = np.array(self.data)
         
-        print(self.data[self.colGuide["Time (ms)"]])
 
 

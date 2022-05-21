@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QFileDialog, QToolBar, QAction
 from dataframe import DataFrame
 import observer
+import selector
 
 bar = QToolBar()
 
@@ -15,6 +16,7 @@ def onPress(a):
         else:
             print(fname)
             observer.currentFrame = DataFrame(fname)
+            selector.update_options(observer.currentFrame)
 
 actionImport = QAction("Import\nFile")
 actionSave = QAction("Save\nFile")
