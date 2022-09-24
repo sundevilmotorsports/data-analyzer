@@ -1,12 +1,10 @@
+"""
+Entry point for the software
+"""
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDockWidget
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-import pyqtgraph.examples
-
-# run pyqtgraph examples
-pyqtgraph.examples.run()
-
 
 app = QApplication(sys.argv)
 

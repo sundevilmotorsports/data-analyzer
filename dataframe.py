@@ -1,4 +1,6 @@
-# intermediate representation of a data file
+"""
+intermediate representation of a data file
+"""
 import numpy as np
 
 class DataFrame():

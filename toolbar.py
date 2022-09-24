@@ -1,3 +1,6 @@
+"""
+Tool bar: if any widgets 
+"""
 from PyQt5.QtWidgets import QFileDialog, QToolBar, QAction
 from dataframe import DataFrame
 import observer
@@ -5,6 +8,9 @@ import selector
 
 bar = QToolBar()
 
+"""
+button handler
+"""
 def onPress(a):
     if a.text() == "Import\nFile":
         file = QFileDialog()
@@ -17,6 +23,10 @@ def onPress(a):
             print(fname)
             observer.currentFrame = DataFrame(fname)
             selector.update_options(observer.currentFrame)
+    elif a.text() == "Movement\nData":
+        print(a.text())
+    elif a.text() == "Track\nMap":
+        print(a.text())
 
 actionImport = QAction("Import\nFile")
 actionSave = QAction("Save\nFile")

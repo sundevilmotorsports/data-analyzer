@@ -1,3 +1,6 @@
+"""
+Selects the data for a plot
+"""
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QComboBox
 from dataframe import DataFrame
 import plotmanager as pm

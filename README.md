@@ -14,6 +14,9 @@ $ pip install -r requirements.txt
 # Run the Plotter Utility
 $ python3 main.py
 
+# Or, run pyqtgraph examples
+$ python3 examples.py
+
 # Leave the virtual environment
 $ deactivate
 ```
