@@ -28,7 +28,6 @@ botPlot.showGrid(x=True,y=True)
 botPlot.setMouseEnabled(x=True, y=False)
 botPlot.setXLink(topPlot)
 
-
 #cross hair
 vLine = pg.InfiniteLine(angle=90, movable=False)
 vLine2 = pg.InfiniteLine(angle=90, movable=False)
