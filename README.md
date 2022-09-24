@@ -17,3 +17,11 @@ $ python3 main.py
 # Leave the virtual environment
 $ deactivate
 ```
+### Windows
+```
+python -m venv venv
+call venv\Scripts\activate.bat
+python main.py
+
+deactivate
+```
