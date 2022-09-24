@@ -30,6 +30,7 @@ deactivate
 ```
 
 ### MacOS
+```
 # First time:
 # For M1 chips follow: https://stackoverflow.com/questions/65901162/how-can-i-run-pyqt5-on-my-mac-with-m1chip-ppc64el-architecture
 
@@ -51,3 +52,4 @@ $ python3 examples.py
 
 # Leave the virtual environment
 $ deactivate
+```
