@@ -37,7 +37,7 @@ deactivate
 # Upgrade pip if necessary
 $ python3 -m pip install --upgrade pip
 
-# Run instr:
+# Run instructions:
 # Create virual environment
 $ /usr/bin/python3 -m venv venv
 
