@@ -3,7 +3,33 @@ intermediate representation of a data file
 """
 import numpy as np
 
+"""
+@class DataFrame
+
+@brief Intermediate representation of a data file
+
+A DataFrame is the data structure used to represent a data file that
+has been created from the car's data logger.
+
+It consists of:
+self.path: path to the data file in the file directory
+
+self.numCol: number of columns (headers) in the frame
+
+self.colGuide: This is a dictionary where the key is the columns' names, and the value is the column's index in self.data
+This is used to identify which index of self.data to use when accessing a specific column by name.
+For example, to get the rear right shock travel where the header is "RR shock travel (in)":
+df.data[df.colGuide["RR shock travel (in)"]]
+would get the rear right shock travel data points, sorted by timestamp,
+i.e. df.data[df.colGuide["RR shock travel (in)"]][0] would be the data point from the first timestamp recorded by the data logger.
+
+self.data: 2d array of data points, is a numpy array.
+
+
+"""
 class DataFrame():
+
+    # creates a DataFrame from a .csv file
     def __init__(self, path) -> None:
         self.path = path
         self.numCol = 0

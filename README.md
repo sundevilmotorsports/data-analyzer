@@ -21,11 +21,25 @@ $ python3 examples.py
 $ deactivate
 ```
 ### Windows
-```
+```bat
+:: First time setup:
+:: Create virtual environment
 python -m venv venv
+
+:: install requirements (if you have errors here, try python -m pip install -r requirements.txt)
+pip install -r requirements.txt
+
+:: Run instructions:
+:: start virtual environment
 call venv\Scripts\activate.bat
+
+:: Run the Plotter Utility
 python main.py
 
+:: Or, run pyqtgraph examples
+python examples.py
+
+:: Leave virtual environment
 deactivate
 ```
 

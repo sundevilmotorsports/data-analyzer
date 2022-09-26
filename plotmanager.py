@@ -1,4 +1,5 @@
 """
+
 """
 import pyqtgraph as pg
 import numpy as np
@@ -28,16 +29,20 @@ botPlot.showGrid(x=True,y=True)
 botPlot.setMouseEnabled(x=True, y=False)
 botPlot.setXLink(topPlot)
 
-#cross hair
+# vertical line
+# we need a separate vertical line for each plot, hence vLine, vLine2, etc.
 vLine = pg.InfiniteLine(angle=90, movable=False)
 vLine2 = pg.InfiniteLine(angle=90, movable=False)
 vLine3 = pg.InfiniteLine(angle=90, movable=False)
+
+# add vertical lines to each plot
 topPlot.addItem(vLine, ignoreBounds=False)
 midPlot.addItem(vLine2, ignoreBounds=True)
 botPlot.addItem(vLine3, ignoreBounds=True)
 
+# this function and variable is used to set the position of the
+# vertical line to wherever the mouse cursor is
 vb = topPlot.vb
-
 def mouseMoved(evt):
     pos = evt[0]  ## using signal proxy turns original arguments into a tuple
     if topPlot.sceneBoundingRect().contains(pos) or midPlot.sceneBoundingRect().contains(pos) or botPlot.sceneBoundingRect().contains(pos) :
@@ -45,9 +50,10 @@ def mouseMoved(evt):
         vLine.setPos(mousePoint.x())
         vLine2.setPos(mousePoint.x())
         vLine3.setPos(mousePoint.x())
-        
 proxy = pg.SignalProxy(topPlot.scene().sigMouseMoved, rateLimit=60, slot=mouseMoved)
 
+# initialize the plots
+# this is run when a file is imported.
 def initializePlots(df: DataFrame):
     # clear and re-add vertical lines
     topPlot.clear()
@@ -62,8 +68,15 @@ def initializePlots(df: DataFrame):
     midPlot.plot(df.data[0], df.data[1])
     botPlot.plot(df.data[0], df.data[1])
 
+# updates a graph with new data.
+# this is called from selector.py
 def updateGraph(graph: str, header: str):
+    # get the header index of the data we want to plot
     headerIndex: int = obs.currentFrame.colGuide[header]
+
+    # then, update the chosen graph
+    # first, graph is cleared, then vertical line (crosshair) is added
+    # then the data is plotted using timestamps for the x axis
     if graph == "top":
         topPlot.clear()
         topPlot.addItem(vLine, ignoreBounds=False)

@@ -1,5 +1,9 @@
 """
-Tool bar: if any widgets 
+@file toolbar.py
+
+This is the code for the data analyzer's tool bar.
+It includes buttons (ie QActions) for opening miscellaneous widgets,
+such as track map and movement data.
 """
 from PyQt5.QtWidgets import QFileDialog, QToolBar, QAction
 from dataframe import DataFrame
@@ -9,7 +13,7 @@ import selector
 bar = QToolBar()
 
 """
-button handler
+button handler for when a QAction is clicked on
 """
 def onPress(a):
     if a.text() == "Import\nFile":
@@ -24,10 +28,13 @@ def onPress(a):
             observer.currentFrame = DataFrame(fname)
             selector.update_options(observer.currentFrame)
     elif a.text() == "Movement\nData":
-        print(a.text())
+        print("Movement Data")
     elif a.text() == "Track\nMap":
-        print(a.text())
+        print("Track Map")
 
+"""
+Each of these QActions represents a button on the toolbar
+"""
 actionImport = QAction("Import\nFile")
 actionSave = QAction("Save\nFile")
 actionDetails = QAction("Show\nDetails")

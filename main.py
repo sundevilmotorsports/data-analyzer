@@ -32,7 +32,7 @@ dock.setWidget(selector.widget)
 window.addDockWidget(Qt.LeftDockWidgetArea, dock)
 window.addToolBar(toolbar.bar)
 
-
+# show the window
 window.show()
 
 # Start the event loop.
