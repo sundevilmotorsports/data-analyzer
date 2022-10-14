@@ -5,12 +5,20 @@ This is the code for the data analyzer's tool bar.
 It includes buttons (ie QActions) for opening miscellaneous widgets,
 such as track map and movement data.
 """
-from PyQt5.QtWidgets import QFileDialog, QToolBar, QAction
+from PyQt5.QtWidgets import QFileDialog, QToolBar, QAction, QPushButton, QHBoxLayout, QWidget
 from dataframe import DataFrame
 import observer
 import selector
 
 bar = QToolBar()
+
+
+button = QPushButton("asdfasdfasdf")
+
+widget = QWidget()
+layout = QHBoxLayout()
+layout.addWidget(button)
+widget.setLayout(layout)
 
 """
 button handler for when a QAction is clicked on
@@ -31,6 +39,7 @@ def onPress(a):
         print("Movement Data")
     elif a.text() == "Track\nMap":
         print("Track Map")
+        widget.show()
 
 """
 Each of these QActions represents a button on the toolbar
@@ -43,11 +52,13 @@ bar.addAction(actionSave)
 bar.addAction(actionDetails)
 bar.addSeparator()
 
+actionSummary = QAction("Data\nSummary")
 actionTyre = QAction("Tyre\nData")
 actionMovement = QAction("Movement\nData")
 actionTrack = QAction("Track\nMap")
 actionLapComparison = QAction("Lap\nComparison")
 customChannel = QAction("Custom\nChannel")
+bar.addAction(actionSummary)
 bar.addAction(actionTyre)
 bar.addAction(actionMovement)
 bar.addAction(actionTrack)
