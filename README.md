@@ -1,5 +1,7 @@
-# Sun Devil Motorsports Plotter Utility
-## Instructions
+# Sun Devil Motorsports Data Studio
+## Build Instructions
+These instructions are for people developing SDM Data Studio.
+If you wish to install it, follow the instructions at TODO.
 ### Linux
 ```bash
 # Create virtual environment
@@ -8,14 +10,17 @@ $ python3 -m venv venv
 # Start virtual environment
 $ source venv/bin/activate
 
-# Install requried packages
+# Install requried packages (only required on first run)
 $ pip install -r requirements.txt
 
-# Run the Plotter Utility
-$ python3 main.py
+# Run the program
+$ python3 src/main.py
 
 # Or, run pyqtgraph examples
-$ python3 examples.py
+$ python3 src/examples.py
+
+# Build the installer
+$ pyinstaller main.spec
 
 # Leave the virtual environment
 $ deactivate
@@ -27,17 +32,21 @@ $ deactivate
 python -m venv venv
 
 :: install requirements (if you have errors here, try python -m pip install -r requirements.txt)
+:: (only required on first run)
 pip install -r requirements.txt
 
 :: Run instructions:
 :: start virtual environment
 call venv\Scripts\activate.bat
 
-:: Run the Plotter Utility
-python main.py
+:: Run the program
+python src\main.py
 
 :: Or, run pyqtgraph examples
-python examples.py
+python src\examples.py
+
+:: Build the executable
+pyinstaller main.spec
 
 :: Leave virtual environment
 deactivate
