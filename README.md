@@ -1,7 +1,7 @@
 # Sun Devil Motorsports Data Studio
+## Install Instructions
+TODO
 ## Build Instructions
-These instructions are for people developing SDM Data Studio.
-If you wish to install it, follow the instructions at TODO.
 ### Linux
 ```bash
 # Create virtual environment

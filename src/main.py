@@ -1,5 +1,7 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
 import sys, os, time
+from toolbar import SDMToolBar
+from view import View
 
 basedir = os.path.dirname(__file__)
 version_str = "v0.1.0"
@@ -18,9 +20,12 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__()
 
         self.setWindowTitle("SDM Data Studio")
-        l = QtWidgets.QLabel("My simple app.")
-        l.setMargin(10)
-        self.setCentralWidget(l)
+        self.resize(1600, 900)
+        view = View()
+        self.setCentralWidget(view)
+
+        toolbar = SDMToolBar()
+        self.addToolBar(toolbar)
         self.show()
 
 
